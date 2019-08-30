@@ -8,4 +8,8 @@ Looking back from our 2019 vantage point, however, the trend has become undeniab
 
 The first step is data collection, from the NOAA API, a process which is a little cumbersome given the NOAA API's limits. The basic outline of this is in the first big_deal notebook, though the actual data collection I performed from a python file at the command line rather than out of a notebook.
 
-This has also been an exercise in creating visualizations. Plotly is syntactically simple (compared to matplotlib, that doesn't say much) and produces attractive, interactive visualizations right out of the gate. 
+This has also been an exercise in creating visualizations. Plotly is syntactically simple (compared to matplotlib, that doesn't say much) and produces attractive, interactive visualizations right out of the gate. I've also begun using Dash to create an interactive dashboard. With multiple cities worth of data requested from NOAA, the dashboard allows a user to select a city and a metric to view (average daily maximum temperature, average daily minimum temperature number of days above 90 each year) to generate a chart. I then added a div in the page to display the results of a t-test performed on the average of the metric for the last 10 years relative to the last half of the 20th century. Aesthetic adjustments to follow, but I'm pretty happy with the early results:
+
+![Dash](https://github.com/max-miller/big_deal/blob/master/visualizations/dash_aligned_ttest.png?raw=true)
+
+I've also added dynamically changing backgrounds with each city, although it's a little wonky getting those to align properly.
