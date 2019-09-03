@@ -170,11 +170,19 @@ for city in city_names:
         pass
 
 background_color = 'rgba(227,227,246,.5)'
+header_text = '''Is Climate Change a Big Deal? How much have temperatures changed in cities acroos the US? Select a city and a metric to see historical numbers since 1950.
+Average Maximum and Average Minimum temperatures a year by year averages of all daily maximums and minimums.
+You may notice that warming trends are generally more noticeable in the daily minimums - nights have gotten warmer at a faster rate than days.
+'''
 app= dash.Dash()
 
-app.layout = html.Div(html.Div([html.Div([dcc.Dropdown(id='city-dropdown',
+app.layout = html.Div(html.Div([html.Div([html.Div(id='header',children=header_text,
+                                                  style={'fontSize':24,'marginBottom':20}),
+
+                                          dcc.Dropdown(id='city-dropdown',
                                             options=[{'label':city,'value':city} for city in city_names],
                                             value='New York, NY',style={'width':'50%','display':'inline-block'}),
+
                                  dcc.Dropdown(id='metric-dropdown',
                             options=[{'label':'Average Maximum Temp','value':'TMAX'},
                                     {'label':'Average Minimum Temp','value':'TMIN'},
