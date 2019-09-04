@@ -139,17 +139,17 @@ def ttest(df, metric, city):
                              df['1950':'2000'][f'{metric}{city}'],equal_var=False)[1]
     if pvalue == 0:
         if diff >0:
-            return f'''The {label_dict[metric].lower()} was {diff} higher in the last ten years compared to last half of the 20th century. The odds of this happening by chance are vanishingly small'''
-        return f'''The {label_dict[metric].lower()} was {-diff} lower in the last ten years compared to last half of the 20th century. The odds of this happening by chance are vanishingly small'''
+            return f'''The {label_dict[metric].lower()} was {diff} higher in the last ten years compared to the last half of the 20th century. The odds of this happening by chance are vanishingly small'''
+        return f'''The {label_dict[metric].lower()} was {-diff} lower in the last ten years compared to the last half of the 20th century. The odds of this happening by chance are vanishingly small'''
     elif pvalue < .2:
         odds = rounder(int(round(1/pvalue)))
         if diff >0:
-            return f'''The {label_dict[metric].lower()} was {diff} higher in the last ten years compared to last half of the 20th century. The odds of this happening by chance are about 1 in {odds}'''
+            return f'''The {label_dict[metric].lower()} was {diff} higher in the last ten years compared to the last half of the 20th century. The odds of this happening by chance are about 1 in {odds}'''
 
-        return f'''The {label_dict[metric].lower()} was {-diff} lower in the last ten years compared to last half of the 20th century. The odds of this happening by chance are about 1 in {odds}'''
+        return f'''The {label_dict[metric].lower()} was {-diff} lower in the last ten years compared to the last half of the 20th century. The odds of this happening by chance are about 1 in {odds}'''
     elif diff >0:
-        return f'''The {label_dict[metric].lower()} was {diff} higher in the last ten years compared to last half of the 20th century. This difference may well be due to chance'''
-    return f'''The {label_dict[metric].lower()} was {-diff} lower in the last ten years compared to last half of the 20th century. This difference may well be due to chance'''
+        return f'''The {label_dict[metric].lower()} was {diff} higher in the last ten years compared to the last half of the 20th century. This difference may well be due to chance'''
+    return f'''The {label_dict[metric].lower()} was {-diff} lower in the last ten years compared to the last half of the 20th century. This difference may well be due to chance'''
 
 def dataframe_prep(city):
     temp = pd.read_csv(f'master_data/{city}_master.csv')
@@ -170,8 +170,8 @@ for city in city_names:
         pass
 
 background_color = 'rgba(227,227,246,.5)'
-header_text = '''Is Climate Change a Big Deal? How much have temperatures changed in cities acroos the US? Select a city and a metric to see historical numbers since 1950.
-Average Maximum and Average Minimum temperatures a year by year averages of all daily maximums and minimums.
+header_text = '''Is Climate Change a Big Deal? How much have temperatures changed in cities across the US? Select a city and a metric to see historical numbers since 1950.
+Average Maximum and Average Minimum temperatures are year by year averages of all daily maximums and minimums.
 You may notice that warming trends are generally more noticeable in the daily minimums - nights have gotten warmer at a faster rate than days.
 '''
 app= dash.Dash()
