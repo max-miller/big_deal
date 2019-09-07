@@ -15,3 +15,5 @@ This has also been an exercise in creating visualizations. Plotly is syntactical
 I've also added dynamically changing backgrounds with each city, although it's a little wonky getting those to align properly.
 
 The final dashboard with all 86 cities is now live at [isclimatechangeabigdeal.com](isclimatechangeabigdeal.com). A little bit more about some of the trends I saw in the data as I put the site together is discussed in a [follow up blog post](https://towardsdatascience.com/visualizing-climate-change-65ea422cf2dd). For any one looking for the short answer as to whether climate change is a big deal - I think the answer is yes.
+
+![Demo](https://github.com/max-miller/big_deal/blob/master/demo.gif?raw=true)
